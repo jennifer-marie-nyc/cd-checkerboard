@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <style>
+        h1 {
+            color: {{ color2 }};
+            background-color: {{ color1 }};
+        }
+
+        .square {
+            background-color: {{ color1 }};
+        }
+
+        .row:nth-child(odd) .square:nth-child(even),
+        .row:nth-child(even) .square:nth-child(odd) {
+            background-color: {{ color2 }};
+        }
+    </style>
+    <title>Checkerboard</title>
+</head>
+<body>
+    <div id="main-content">
+        
+        <h1>*** Checkerboard ***</h1>
+
+        <div id="board">
+            {% for i in range (0, height) %}
+                <div class="row">
+                    {% for j in range (0, width) %}
+                        <div class="square"></div>
+                        {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>
